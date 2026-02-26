@@ -3,19 +3,6 @@ package com.leodev.icompras.clientes.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-/**
- * create table clientes(
- * 	codigo serial not null primary key,
- * 	nome varchar(150) not null,
- * 	cpf char(11) not null,
- * 	logradouro varchar(100),
- * 	numero varchar(10),
- * 	bairro varchar(100),
- * 	email varchar(150),
- * 	telefone varchar(20)
- * );
- */
-
 @Entity
 @Table(name = "clientes")
 @Data
@@ -45,4 +32,12 @@ public class Cliente {
 
     @Column(name = "telefone", length = 20)
     private String telefone;
+
+    @Column(name = "ativo")
+    private boolean ativo;
+
+    @PrePersist
+    public void prePersist(){
+        setAtivo(true);
+    }
 }
