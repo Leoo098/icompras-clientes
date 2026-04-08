@@ -34,7 +34,7 @@ public class ClienteController {
     @GetMapping("{codigo}")
     @Operation(summary = "Obter Detalhes", description = "Retorna os dados do cliente pelo código")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Cadastrado com sucesso."),
+            @ApiResponse(responseCode = "200", description = "Cliente encontrado."),
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado."),
     })
     public ResponseEntity<Cliente> obterDados(@PathVariable("codigo") Long codigo){
